@@ -2,6 +2,7 @@ package models
 
 import (
 	"fmt"
+
 	"gorm.io/gorm"
 )
 
@@ -13,19 +14,19 @@ type BookList []Book
 // Author struct.
 type Book struct {
 	gorm.Model
-	ID	uint	`json:"id" gorm:"unique"`
-	Name	string	`json:"name"`
-	PageNumber	uint	`json:"pageNumber"`
-	StockNumber	uint	`json:"stockNumber"`
-	Price	float64	`json:"price"`
-	StockCode	string	`json:"stockCode" gorm:"unique"`
-	ISBN	string	`json:"isbn" gorm:"unique"`
-	AuthorName	string	`json:"authorName"`
-	Author	Author	`gorm:"OnDelete:SET NULL"`
+	ID          uint    `json:"id" gorm:"unique"`
+	Name        string  `json:"name"`
+	PageNumber  uint    `json:"pageNumber"`
+	StockNumber uint    `json:"stockNumber"`
+	Price       float64 `json:"price"`
+	StockCode   string  `json:"stockCode" gorm:"unique"`
+	ISBN        string  `json:"isbn" gorm:"unique"`
+	AuthorName  string  `json:"authorName"`
+	Author      Author  `gorm:"OnDelete:SET NULL"`
 }
 
 // TableName returns the name of book schema in PostgreSql database.
-func (Book) TableName() string{
+func (Book) TableName() string {
 	return "books"
 }
 
@@ -36,10 +37,10 @@ func (b *Book) ToString() string {
 }
 
 // ShowBooks prints relative book information of all books in book list
-func (bl BookList) ShowBooks(){
-	for _, b := range bl{
+func (bl BookList) ShowBooks() {
+	for _, b := range bl {
 		fmt.Sprintf("ID: %v, Name: %s, PageNumber: %v, StockNumber: %v, Price: %v, StockCode: %s, ISBN: %s, AuthorName: %s, AuthorID: %v, CreatedAt: %s",
-		b.ID, b.Name, b.PageNumber, b.StockNumber, b.Price, b.StockCode, b.ISBN, b.Author.Name, b.Author.ID, b.CreatedAt.Format("2006-01-02 15:04:05"))
+			b.ID, b.Name, b.PageNumber, b.StockNumber, b.Price, b.StockCode, b.ISBN, b.Author.Name, b.Author.ID, b.CreatedAt.Format("2006-01-02 15:04:05"))
 	}
 }
 
