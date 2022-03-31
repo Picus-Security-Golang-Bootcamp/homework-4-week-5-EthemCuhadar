@@ -1,0 +1,28 @@
+[
+{
+	"ID": 1,
+	"Name": "Don Quiote",
+	"PageNumber": 1072,
+	"StockNumber": 12,
+	"Price": 11.69,
+	"StockCode": 543891,
+	"ISBN": 9142437239,
+	"Author": {
+		"ID": 1,
+		"Name": "Miguel De Cervantes Saavedra"
+	}
+},
+{
+	"ID": 1,
+	"Name": "One Hundred Years of Solitude",
+	"PageNumber": 417,
+	"StockNumber": 15,
+	"Price": 14.50,
+	"StockCode": 394516	,
+	"ISBN": 2060883286,
+	"Author": {
+		"ID": 2,
+		"Name": "Gabriel Garcia Marquez"
+	}
+}
+]
