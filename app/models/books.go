@@ -13,15 +13,15 @@ type BookList []Book
 // Author struct.
 type Book struct {
 	gorm.Model
-	ID				uint		`json:"id" gorm:"unique"`
-	Name        	string 		`json:"name"`
-	PageNumber  	uint   		`json:"pageNumber"`
-	StockNumber 	uint   		`json:"stockNumber"`
-	Price       	float64		`json:"price"`
-	StockCode   	string 		`json:"stockCode" gorm:"unique"`
-	ISBN       		string 		`json:"isbn" gorm:"unique"`
-	AuthorName  	int    		`json:"authorName"`
-	Author			Author		`gorm:"OnDelete:SET NULL"`
+	ID	uint	`json:"id" gorm:"unique"`
+	Name	string	`json:"name"`
+	PageNumber	uint	`json:"pageNumber"`
+	StockNumber	uint	`json:"stockNumber"`
+	Price	float64	`json:"price"`
+	StockCode	string	`json:"stockCode" gorm:"unique"`
+	ISBN	string	`json:"isbn" gorm:"unique"`
+	AuthorName	string	`json:"authorName"`
+	Author	Author	`gorm:"OnDelete:SET NULL"`
 }
 
 // TableName returns the name of book schema in PostgreSql database.
