@@ -1,28 +1,28 @@
 [
 {
-	"ID": 1,
-	"Name": "Don Quiote",
-	"PageNumber": 1072,
-	"StockNumber": 12,
-	"Price": 11.69,
-	"StockCode": 543891,
-	"ISBN": 9142437239,
-	"Author": {
-		"ID": 1,
-		"Name": "Miguel De Cervantes Saavedra"
+	"id": 1,
+	"name": "Don Quiote",
+	"pageNumber": 1072,
+	"stockNumber": 12,
+	"price": 11.69,
+	"stockCode": "543891",
+	"isbn": "9142437239",
+	"author": {
+		"id": 1,
+		"name": "Miguel De Cervantes Saavedra"
 	}
 },
 {
-	"ID": 1,
-	"Name": "One Hundred Years of Solitude",
-	"PageNumber": 417,
-	"StockNumber": 15,
-	"Price": 14.50,
-	"StockCode": 394516	,
-	"ISBN": 2060883286,
-	"Author": {
-		"ID": 2,
-		"Name": "Gabriel Garcia Marquez"
+	"id": 2,
+	"name": "One Hundred Years of Solitude",
+	"pageNumber": 417,
+	"stockNumber": 15,
+	"price": 14.50,
+	"stockCode": "394516",
+	"isbn": "2060883286",
+	"author": {
+		"id": 2,
+		"name": "Gabriel Garcia Marquez"
 	}
 }
 ]
