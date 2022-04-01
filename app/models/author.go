@@ -35,7 +35,7 @@ type Author struct {
 	// name
 	// Example: Cervantes
 	// Required: true
-	Name *string `json:"name"`
+	Name *string `json:"name" gorm:"primaryKey"`
 }
 
 // MigrateBooks will create and migrate the tables, and then make the some relationships if necessary
