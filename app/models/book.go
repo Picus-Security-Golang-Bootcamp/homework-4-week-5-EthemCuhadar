@@ -22,14 +22,18 @@ type Book struct {
 	
 	gorm.Model
 	
+	// authorName
+	// Example: Cervantes
+	AuthorName  *string	`json:"AuthorName"`
+	
 	// author
 	// Example: {"id":1,"name":"Cervantes"}
-	Author *Author `gorm:"OnDelete:SET NULL"`
-
+	Author *Author `gorm:"OnDelete:SET NULL; foreignKey:AuthorName"`
+	
 	// id
 	// Example: 1
 	// Required: true
-	ID *uint64 `json:"id" gorm:"unique"`
+	ID *uint64 `json:"id" gorm:"primaryKey; unique"`
 
 	// isbn
 	// Example: 6409887361
