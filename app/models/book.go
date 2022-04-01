@@ -69,6 +69,12 @@ func (Book) TableName() string {
 	return "books"
 }
 
+// MigrateBooks will create and migrate the tables, and then make the some relationships if necessary
+func MigrateBooks(db *gorm.DB) *gorm.DB {
+	db.AutoMigrate(&Book{})
+	return db
+}
+
 // ToString is string representation of relative fields for Book structs.
 func (b *Book) ToString() string {
 	return fmt.Sprintf("ID: %v, Name: %s, PageNumber: %v, StockNumber: %v, Price: %v, StockCode: %s, ISBN: %s, AuthorName: %s, AuthorID: %v, CreatedAt: %s",
