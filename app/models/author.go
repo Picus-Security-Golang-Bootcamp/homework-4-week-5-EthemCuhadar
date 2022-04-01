@@ -38,6 +38,12 @@ type Author struct {
 	Name *string `json:"name"`
 }
 
+// MigrateBooks will create and migrate the tables, and then make the some relationships if necessary
+func MigrateAuthors(db *gorm.DB) *gorm.DB {
+	db.AutoMigrate(&Author{})
+	return db
+}
+
 // ToString returns a string representation of the author
 func (a *Author) ToString() string {
 	return fmt.Sprintf("ID: %v Name: %s Books: %v", a.ID, a.Name, a.Books)
