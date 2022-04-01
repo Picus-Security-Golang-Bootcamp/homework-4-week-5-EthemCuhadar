@@ -1,0 +1,436 @@
+swagger: "2.0"
+info:
+  title: "Bookstore API"
+  description: "This is a bookstore api in which book and author endpoints are implemented."
+  version: "1.0.0"
+host: "localhost:8080"
+basePath: "/v1"
+schemes:
+  - "http"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+tags:
+  - name: "book"
+    x-displayName: "Books"
+    description: |
+      The books in the database will be reachable with book endpoints.
+  - name: "author"
+    x-displayName: "Authors"
+    description: |
+      The authors in the database will be reachable with author endpoints.
+paths:
+  /healthcheck:
+    get:
+      tags:
+        - api
+      summary: "Show application health and version information"
+      description: "This endpoint will return some basic information about our API, including its current version number and operating environment (development, staging, production, etc.)."
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/healthcheck"
+      
+  /books:
+    get:
+      tags:
+        - book
+      summary: "Show the details of all books."
+      description: "GET books will return all books in the database. By default all of the books will be displayed in JSON format with relative information fields(id, name, stock number etc.)."
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/success"
+    post:
+      tags:
+        - book
+      summary: "Create a new book."
+      description: "POST books will get a book information and creates it in the database."
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          required: false
+          description: "The method gets a id parameter of a book."
+          schema:
+            $ref: "#/definitions/book"
+      responses:
+        200:
+          description: "Create successfully"
+          schema:
+            $ref: "#/definitions/success"
+        405:
+          description: "Invalid input"
+          schema:
+            $ref: "#/definitions/unsuccess"
+  /books/{id}:
+    get:
+      tags:
+        - book
+      summary: "Returns a book by ID."
+      parameters:
+        - in: "path"
+          name: "id"
+          required: true
+          type: "integer"
+          minimum: 1
+          description: "The method gets a id parameter of a book."
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/book"
+        400:
+          description: "The specified book ID is invalid (e.g. not a number)."
+        404:
+          description: "A book with the specified ID was not found."
+        default:
+          description: "Unexpected error"
+    patch:
+      tags:
+        - book
+      summary: "Update the details of a specific book."
+      description: "PATCH a book will get a book information and updates them in the database."
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "path"
+          name: "id"
+          required: true
+          type: "integer"
+          minimum: 1
+          description: "The method gets a id parameter of a book."
+        - in: "body"
+          name: "body"
+          required: false
+          description: "The method gets a book object."
+          schema:
+            $ref: "#/definitions/bookFields"
+      responses:
+        200:
+          description: "Create successfully"
+          schema:
+            $ref: "#/definitions/updatedBook"
+        405:
+          description: "Invalid input"
+          schema:
+            $ref: "#/definitions/unsuccess"
+    delete:
+      tags:
+        - book
+      summary: "Delete a specific book"
+      description: "DELETE a book will get a book id and delete it from the database."
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "The method gets a id parameter of a book."
+          required: true
+          type: "integer"
+          minimum: 1
+      responses:
+        200:
+          description: "Book is deleted from database"
+          schema:
+            $ref: "#/definitions/success"
+            
+  /authors:
+    get:
+      tags:
+        - author
+      summary: "Show the details of all authors."
+      description: "GET authors will return all authors in the database. By default all of the authors will be displayed in JSON format with relative information fields(id and name)."
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/success"
+    post:
+      tags:
+        - author
+      summary: "Create a new author."
+      description: "POST author will get a author information and creates it in the database."
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          required: false
+          description: "The method gets a id parameter of a book."
+          schema:
+            $ref: "#/definitions/author"
+      responses:
+        200:
+          description: "Create successfully"
+          schema:
+            $ref: "#/definitions/success"
+        405:
+          description: "Invalid input"
+          schema:
+            $ref: "#/definitions/unsuccess"
+            
+  /authors/{id}:
+    get:
+      tags:
+        - author
+      summary: "Returns an author by ID."
+      parameters:
+        - in: "path"
+          name: "id"
+          required: true
+          type: "integer"
+          minimum: 1
+          description: "The method gets a id parameter of a author."
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/author"
+        400:
+          description: "The specified author ID is invalid (e.g. not a number)."
+        404:
+          description: "A author with the specified ID was not found."
+        default:
+          description: "Unexpected error"
+    patch:
+      tags:
+        - author
+      summary: "Update the details of a specific author."
+      description: "PATCH a author will get a author information and updates them in the database."
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "path"
+          name: "id"
+          required: true
+          type: "integer"
+          minimum: 1
+          description: "The method gets a id parameter of a author."
+        - in: "body"
+          name: "body"
+          required: false
+          description: "The method gets a author object."
+          schema:
+            $ref: "#/definitions/authorFields"
+      responses:
+        200:
+          description: "Create successfully"
+          schema:
+            $ref: "#/definitions/updatedAuthor"
+        405:
+          description: "Invalid input"
+          schema:
+            $ref: "#/definitions/unsuccess"
+    delete:
+      tags:
+        - author
+      summary: "Delete a specific author"
+      description: "DELETE an author will get an author id and delete it from the database."
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "The method gets a id parameter of a author."
+          required: true
+          type: "integer"
+          minimum: 1
+      responses:
+        200:
+          description: "Author is deleted from database"
+          schema:
+            $ref: "#/definitions/success"
+definitions:
+  book:
+    type: "object"
+    required:
+        - "id"
+        - "name"
+        - "stockNumber"
+        - "stockCode"
+        - "price"
+        - "isbn"
+    properties:
+        id:
+            type: "integer"
+            format: "uint"
+            example: 1
+        name:
+            type: "string"
+            format: "string"
+            example: "Don Quiote"
+        pageNumber:
+            type: "integer"
+            format: "uint"
+            example: "567"
+        stockNumber:
+            type: "integer"
+            format: "uint"
+            example: 19
+        price:
+            type: "number"
+            format: "float64"
+            example: 19.99
+        stockCode:
+            type: "string"
+            format: "string"
+            example: "AYT4695"
+        isbn:
+            type: "string"
+            format: "string"
+            example: "6409887361"
+        author:
+            type: "object"
+            format: "Author"
+            example: {id: 1, name: "Cervantes"}
+  updatedBook:
+    type: "object"
+    required:
+        - "id"
+        - "name"
+        - "stockNumber"
+        - "stockCode"
+        - "price"
+        - "isbn"
+    properties:
+        id:
+            type: "integer"
+            format: "uint"
+            example: 1
+        name:
+            type: "string"
+            format: "string"
+            example: "Don Quiote"
+        pageNumber:
+            type: "integer"
+            format: "uint"
+            example: "567"
+        stockNumber:
+            type: "integer"
+            format: "uint"
+            example: 15
+        price:
+            type: "number"
+            format: "float64"
+            example: 29.99
+        stockCode:
+            type: "string"
+            format: "string"
+            example: "AYT4695"
+        isbn:
+            type: "string"
+            format: "string"
+            example: "6409887361"
+        author:
+            type: "object"
+            format: "Author"
+            example: {id: 1, name: "Cervantes"}
+  unsuccess:
+    type: "object"
+    properties:
+      result:
+        type: "boolean"
+        example: false
+      errorMessage: 
+        type: "string"
+        format: "string"
+        example: "Invalid Book"
+  success:
+    type: "object"
+    properties:
+      result:
+        type: "boolean"
+        example: true
+      successMessage: 
+        type: "string"
+        format: "string"
+        example: "Successful Operation"
+  bookFields:
+    type: "object"
+    properties:
+        stockNumber:
+            type: "integer"
+            format: "uint"
+            example: 15
+        price:
+            type: "number"
+            format: "float64"
+            example: 29.99
+  authorFields:
+    type: "object"
+    properties:
+        name:
+            type: "string"
+            format: "string"
+            example: "Miguel De Cervantes Saavedra"
+  healthcheck:
+    type: "object"
+    properties:
+      status:
+        type: "string"
+        format: "string"
+        example: "available"
+      environment:
+        type: "string"
+        format: "string"
+        example: "development"
+      version:
+        type: "string"
+        format: "string"
+        example: "1.0.0"
+  author:
+    type: "object"
+    required:
+      - "id"
+      - "name"
+    properties:
+      id:
+        type: "integer"
+        format: "uint"
+        example: 1
+      name:
+        type: "string"
+        format: "string"
+        example: "Cervantes"
+      books:
+        type: "array"
+        format: "[]Book"
+        items:
+          $ref: "#/definitions/book"
+        example: "[book1, book2, book3]"
+        
+  updatedAuthor:
+    type: "object"
+    required:
+      - "id"
+      - "name"
+    properties:
+      id:
+        type: "integer"
+        format: "uint"
+        example: 1
+      name:
+        type: "string"
+        format: "string"
+        example: "Miguel De Cervantes Saavedra"
+      books:
+        type: "array"
+        format: "[]Book"
+        items:
+          $ref: "#/definitions/book"
+        example: "[book1, book2, book3]"
