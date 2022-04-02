@@ -76,6 +76,6 @@ $ go run main.go
 
 The api document (YAML file) is tested in Swagger 2.0 Editor. You can see the screenshots below.
 
-![ss1](github.com/Picus-Security-Golang-Bootcamp/homework-4-week-5-EthemCuhadar\images\swagger1.png)
+![ss1](github.com/Picus-Security-Golang-Bootcamp/homework-4-week-5-EthemCuhadar/images/swagger1.png)
 ![ss2](github.com/Picus-Security-Golang-Bootcamp/homework-4-week-5-EthemCuhadar/images/swagger2.png)
 ![ss2](github.com/Picus-Security-Golang-Bootcamp/homework-4-week-5-EthemCuhadar/images/swagger2.png)
