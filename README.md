@@ -28,6 +28,11 @@ The application will be a simple REST API server that will expose endpoints to a
 
 In concrete terms, our application should:
 
+* Host is  ***localhost:8080***
+
+* Base path is ***/v1***
+
+* To check api healthcheck informations use ***/healthcheck***
 - **Create** a new book in response to a valid POST request at `/books`,
 
 - **Update** a book in response to a valid PUT request at `/books/{id}`,
@@ -76,6 +81,17 @@ $ go run main.go
 
 The api document (YAML file) is tested in Swagger 2.0 Editor. You can see the screenshots below.
 
-![ss1](github.com/Picus-Security-Golang-Bootcamp/homework-4-week-5-EthemCuhadar/images/swagger1.png)
-![ss2](github.com/Picus-Security-Golang-Bootcamp/homework-4-week-5-EthemCuhadar/images/swagger2.png)
-![ss2](github.com/Picus-Security-Golang-Bootcamp/homework-4-week-5-EthemCuhadar/images/swagger2.png)
+![ss1](images/swagger1.png)
+![ss2](images/swagger2.png)
+![ss2](images/swagger2.png)
+
+## Postman Screenshot
+
+The API is also tested with **Postman** application. The screenshots can be seen below.
+
+![postman1](images/postman1.png)
+![postman2](images/postman2.png)
+
+## Licence
+
+MIT
