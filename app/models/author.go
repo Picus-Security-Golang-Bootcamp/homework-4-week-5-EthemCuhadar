@@ -38,6 +38,11 @@ type Author struct {
 	Name *string `json:"name" gorm:"primaryKey"`
 }
 
+// TableName returns the name of book schema in PostgreSql database.
+func (Author) TableName() string {
+	return "authors"
+}
+
 // MigrateBooks will create and migrate the tables, and then make the some relationships if necessary
 func MigrateAuthors(db *gorm.DB) *gorm.DB {
 	db.AutoMigrate(&Author{})
