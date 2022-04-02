@@ -96,7 +96,7 @@ paths:
           description: "A book with the specified ID was not found."
         default:
           description: "Unexpected error"
-    patch:
+    put:
       tags:
         - book
       summary: "Update the details of a specific book."
@@ -117,7 +117,7 @@ paths:
           required: false
           description: "The method gets a book object."
           schema:
-            $ref: "#/definitions/bookFields"
+            $ref: "#/definitions/updatedBook"
       responses:
         200:
           description: "Create successfully"
@@ -207,7 +207,7 @@ paths:
           description: "A author with the specified ID was not found."
         default:
           description: "Unexpected error"
-    patch:
+    put:
       tags:
         - author
       summary: "Update the details of a specific author."
@@ -228,7 +228,7 @@ paths:
           required: false
           description: "The method gets a author object."
           schema:
-            $ref: "#/definitions/authorFields"
+            $ref: "#/definitions/updatedAuthor"
       responses:
         200:
           description: "Create successfully"
