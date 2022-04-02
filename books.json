@@ -1,28 +1,8 @@
 [
-{
-	"id": 1,
-	"name": "Don Quiote",
-	"pageNumber": 1072,
-	"stockNumber": 12,
-	"price": 11.69,
-	"stockCode": "543891",
-	"isbn": "9142437239",
-	"author": {
-		"id": 1,
-		"name": "Miguel De Cervantes Saavedra"
-	}
-},
-{
-	"id": 2,
-	"name": "One Hundred Years of Solitude",
-	"pageNumber": 417,
-	"stockNumber": 15,
-	"price": 14.50,
-	"stockCode": "394516",
-	"isbn": "2060883286",
-	"author": {
-		"id": 2,
-		"name": "Gabriel Garcia Marquez"
-	}
-}
+{"id": 1, "name": "Don Quiote", "pageNumber": 1072, "stockNumber": 12, "price": 11.69, "stockCode": "543891", "isbn": "9142437239", "author": {"id": 1, "name": "Miguel De Cervantes Saavedra"}},
+{"id": 2, "name": "One Hundred Years of Solitude", "pageNumber": 417, "stockNumber": 15, "price": 14.50, "stockCode": "394516", "isbn": "2060883286", "author": {"id": 2, "name": "Gabriel Garcia Marquez"}},
+{"id": 3, "name": "War and Peace", "pageNumber": 1296, "stockNumber": 12, "price": 15.69, "stockCode": "163944", "isbn": "1400079985", "author": {"id": 3, "name": "Leo Tolstoy"}},
+{"id": 4, "name": "Lord of the Rings: The Fellowship of the Ring", "pageNumber": 569, "stockNumber": 19, "price": 23.69, "stockCode": "661532", "isbn": "1215539945", "author": {"id": 4, "name": "J.R.R. Tolkein"}},
+{"id": 5, "name": "Lord of the Rings: The Two Towers", "pageNumber": 548, "stockNumber": 11, "price": 20.99, "stockCode": "256316", "isbn": "4469236945", "author": {"id": 4, "name": "J.R.R. Tolkein"}},
+{"id": 6, "name": "Lord of the Rings: The Return of the King", "pageNumber": 669, "stockNumber": 16, "price": 25.99, "stockCode": "569845", "isbn": "2265493164", "author": {"id": 4, "name": "J.R.R. Tolkein"}}
 ]
