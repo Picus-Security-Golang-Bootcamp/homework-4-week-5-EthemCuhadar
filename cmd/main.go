@@ -1,9 +1,15 @@
 package main
 
 import (
-	"fmt"
+	config "github.com/Picus-Security-Golang-Bootcamp/homework-4-week-5-EthemCuhadar/app/config"
+	app "github.com/Picus-Security-Golang-Bootcamp/homework-4-week-5-EthemCuhadar/app"
 )
 
+var jsonFilename = "../books.json"
+
 func main(){
-	fmt.Println("hello world")
+	config := config.GetConfig()
+	app := app.App{}
+	app.Initialize(config)
+	app.Run("localhost:8080")
 }
